@@ -17,7 +17,7 @@ function redirecionar(link){
 }
 
 // Inserindo usuário:
-function existeUsuario(usuario) {
+function existeUsuario(usuario) { // Verifica se usuario existe no localHost
     var existe = false;
     getLocalStorage().forEach((usuarioAtual) => {
         if(usuarioAtual.nome_de_usuario == usuario){
@@ -27,13 +27,29 @@ function existeUsuario(usuario) {
     return existe;
 }
 
-const criarUsuarioNoBD = (user) => {
+const criarUsuarioNoBD = (user) => { // Cria um usuario no localHost
     const dbUsers = getLocalStorage();
     dbUsers.push(user);
     setLocalStorage(dbUsers);
 }
 
-function novoUsuario(opcao = 0){
+
+//Editando Usuário:
+const atualizaUsuario = (index, client) => { // Troca o usuario do index recebido pelo usuario passado no parâmetro.
+    const dbUsers = lerUsuario();
+    dbUsers[index] = client;
+    setLocalStorage(dbUsers);
+}
+
+//Excluindo usuario:
+const excluirUsuario = (index) => { // Exclui usuario do localHost.
+    const dbUsers = lerUsuario();
+    dbUsers.splice(index, 1);
+    setLocalStorage(dbUsers)
+}
+
+// Funções chamadas nas páginas:
+function novoUsuario(){ // Função que é chamada na página de cadastro. Cria um usuário de acordo com o que foi informado no formulário. 
     var confirmarSenha = document.querySelector("#password_confirm").value;
 
     var User = {
@@ -47,10 +63,8 @@ function novoUsuario(opcao = 0){
     if(!existeUsuario(User.nome_de_usuario)){
         if(User.senha == confirmarSenha){
             criarUsuarioNoBD(User);
-            if(opcao == 1){
-                redirecionar("../index.html");
-                emitirAlerta("Conta criada com sucesso. Por favor, faça o login!");
-            }
+            redirecionar("../index.html");
+            emitirAlerta("Conta criada com sucesso. Por favor, faça o login!");
         }else{
             emitirAlerta("A senha de confirmação não é igual a original. Tente novamente!");
         }
@@ -59,22 +73,7 @@ function novoUsuario(opcao = 0){
     }
 }
 
-//Editando Usuário:
-const atualizaUsuario = (index, client) => {
-    const dbUsers = lerUsuario();
-    dbUsers[index] = client;
-    setLocalStorage(dbUsers);
-}
-
-//Excluindo usuario:
-const excluirUsuario = (index) => {
-    const dbUsers = lerUsuario();
-    dbUsers.splice(index, 1);
-    setLocalStorage(dbUsers)
-}
-
-// Funções chamadas nas páginas:
-function excluir(){
+function excluir(){ // Exclui usuário com o index que foi passado no formulário.
     var index = document.querySelector("#index").value;
     if(index > 0 && index < getLocalStorage().length){
         excluirUsuario(index);
@@ -87,7 +86,7 @@ function excluir(){
     }
 }
 
-function editarUsuario(){
+function editarUsuario(){ // Edita usuário no index informado.
     var index = document.querySelector("#index").value;
     var User = {
         nome: document.querySelector("#name").value,
@@ -108,14 +107,10 @@ function editarUsuario(){
     }
 }
 
-function novoUsuarioCadastro(){
-    novoUsuario(1);
-}
-
-function fazerLogin(){  
+function fazerLogin(){  // Verifica se o usuario existe nos cadastros.
     var usuario = document.getElementById("user").value;
     var senha = document.getElementById("password").value; 
-    var existe = false; 
+    var existe = false;
     getLocalStorage().forEach((usuario_atual) => {
         if(usuario == usuario_atual.nome_de_usuario && senha == usuario_atual.senha){
             if(usuario == "inari"){
@@ -130,8 +125,4 @@ function fazerLogin(){
     if(!existe){
         emitirAlerta("Você digitou o usuário ou senha errado!")
     }
-}
-
-function teste(){
-    emitirAlerta("Usuário alterado com sucesso!" + getLocalStorage().length)
 }
