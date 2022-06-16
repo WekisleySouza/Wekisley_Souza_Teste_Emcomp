@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="../js/base_de_dados.js"></script>
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="login-box">
+        <div class="head">
+            <h1>Página de cadastro</h1>
+        </div>
+        <div class="body">
+            <form action="">
+                <label class="name">Nome: </label><input type="text" id="name"><br>
+                <label class="user_name">Nome de usuário: </label><input type="text" id="user_name"><br>
+                <label class="birthday">Data de Nascimento: </label><input type="date" class="birthday" id="birthday"><br>
+                <label class="phone">Telefone: </label><input type="text" id="phone"><br>
+                <label class="pass">Senha: </label><input type="password" id="new_password"><br>
+                <label class="confirm_pass">Confirmar Senha: </label><input type="password" id="password_confirm"><br>
+                
+                <input type="button" value="Cadastrar" onclick="novoUsuarioCadastro()" class="cadastrar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+body{
+    background-color: rgb(233, 233, 233);
+}
+
+body .login-box{
+    color: #b4b4c1;
+    background-color: #3e3d83;
+    width: 470px;
+    height: 460px;
+    border-radius: 8%;
+    box-shadow: 10px 5px 30px black;
+    float: unset;
+}
+
+body .login-box .head{
+    width: 355px;
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.105);
+    margin-left: 60px;
+}
+
+body .login-box .head h1{
+    padding-top: 15px;
+}
+
+body .login-box .body{
+    text-align: center;
+    width: inherit;
+    height: 317px;
+    padding-top: 70px;
+}
+
+body .login-box .body label{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+body .login-box .body input{
+    margin-top: 15px;
+    border: 0px solid;
+    border-radius: 4%;
+}
+
+body .login-box .body input.birthday{
+    width: 165px;
+}
+
+body .login-box .body input.cadastrar{
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 700px) {
+    body div.login-box{
+        margin-top: 125px;
+        margin-left: 0px;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1000px) {
+    body div.login-box{
+        margin-top: 125px;
+        margin-left:170px;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    body div.login-box{
+        margin-top: 125px;
+        margin-left: 520px;
+    }
+}   
