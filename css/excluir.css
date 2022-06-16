@@ -7,6 +7,8 @@ body .login-box{
     background-color: #3e3d83;
     width: 350px;
     height: 320px;
+    margin-top: 200px;
+    margin-left: 40%;
     border-radius: 8%;
     box-shadow: 10px 5px 30px black;
     float: unset;
@@ -47,23 +49,8 @@ body .login-box .body input.excluir{
     margin-left: 15px;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
     body div.login-box{
-        margin-top: 250px;
-        margin-left: 120px;
-    }
-}
-
-@media only screen and (min-width: 700px) and (max-width: 1280px) {
-    body div.login-box{
-        margin-top: 250px;
-        margin-left: 300px;
-    }
-}
-
-@media only screen and (min-width: 1281px) {
-    body div.login-box{
-        margin-top: 200px;
-        margin-left: 550px;
+        margin-left: 15%;
     }
 }

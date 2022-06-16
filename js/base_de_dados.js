@@ -76,10 +76,12 @@ const excluirUsuario = (index) => {
 // Funções chamadas nas páginas:
 function excluir(){
     var index = document.querySelector("#index").value;
-    if(index >= 0 && index < getLocalStorage().length){
+    if(index > 0 && index < getLocalStorage().length){
         excluirUsuario(index);
         emitirAlerta("Usuário excluído com sucesso!");
         redirecionar("pagina_adm.html");
+    }else if(index == 0){
+        emitirAlerta("Não é possível excluir o administrador!")
     }else{
         emitirAlerta("Usuário não encontrado!")
     }
@@ -95,10 +97,12 @@ function editarUsuario(){
         senha: document.querySelector("#new_password").value
     };
 
-    if(index >= 0 && index < getLocalStorage().length){
+    if(index > 0 && index < getLocalStorage().length){
         atualizaUsuario(index, User);
         emitirAlerta("Usuário alterado com sucesso!");
         redirecionar("pagina_adm.html");
+    }else if(index == 0){
+        emitirAlerta("Não é possível editar o administrador!")
     }else{
         emitirAlerta("Usuário não encontrado!")
     }

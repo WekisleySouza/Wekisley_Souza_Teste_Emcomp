@@ -1,0 +1,20 @@
+body{
+    background-color: rgb(233, 233, 233);
+    text-align: center;
+}
+
+table{
+    background-color: #3e3d83;
+    padding: 10px;
+    border-radius: 8%;
+    margin-top: 20px;
+    margin-left: 15%;
+    box-shadow: 1px 1px 2px black;
+    height: auto;
+    width: 70%;
+}
+
+table tr{
+    background-color: rgb(233, 233, 233);
+    box-shadow: 1px 1px 1px 1px black;
+}

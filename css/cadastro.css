@@ -7,6 +7,8 @@ body .login-box{
     background-color: #3e3d83;
     width: 470px;
     height: 460px;
+    margin-top: 125px;
+    margin-left: 35%;
     border-radius: 8%;
     box-shadow: 10px 5px 30px black;
     float: unset;
@@ -53,21 +55,6 @@ body .login-box .body input.cadastrar{
 
 @media only screen and (max-width: 700px) {
     body div.login-box{
-        margin-top: 125px;
-        margin-left: 0px;
+        margin-left: 5px;
     }
 }
-
-@media only screen and (min-width: 700px) and (max-width: 1000px) {
-    body div.login-box{
-        margin-top: 125px;
-        margin-left:170px;
-    }
-}
-
-@media only screen and (min-width: 1001px) {
-    body div.login-box{
-        margin-top: 125px;
-        margin-left: 520px;
-    }
-}   
